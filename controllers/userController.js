@@ -28,6 +28,11 @@ const import_data = async (req, res) => {
     fs.createReadStream(fileName)
       .pipe(csv())
       .on("data", (data) => {
+         /**
+         * For shorter syntax
+         * const {Name , Email, Mobile,Gender,DOB} = data
+         * const result = userSchema.validate({Name , Email, Mobile,Gender,DOB})
+         */
         const result = userSchema.validate({
           Name: data.Name,
           Email: data.Email,
