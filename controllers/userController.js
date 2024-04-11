@@ -29,6 +29,10 @@ const import_data = async (req, res) => {
       .pipe(csv())
       .on("data", (data) => {
         const result = userSchema.validate({
+          /* we can also write like this for shorter syntax 
+            const {Name,Email,Mobile,Gender,DOB} = data
+            const result = userSchema.validate({Name,Email,Mobile,Gender,DOB})
+          */
           Name: data.Name,
           Email: data.Email,
           Mobile: data.Mobile,
