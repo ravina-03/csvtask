@@ -4,7 +4,6 @@ const csv = require("csv-parser");
 const { user } = require("../model/userModel");
 const { userSchema } = require("../schemas/userSchemas");
 
-
 /**
  * Import The User Data from file.
  *
@@ -64,11 +63,17 @@ const import_data = async (req, res) => {
 };
 
 /**
- * Updates a User.
+ * Update User.
  *
- * @param {Object} req - The request object containing the Product ID to update and product name and Price.
- * @param {Object} res - The response object to send JSON format.
- * @returns {Object} - A JSON response indicating success or failure based on validation.
+ * @param {Object} req -  The Request Object
+ * @param {Object} res - A JSON response indicating success or failure based on validation.
+ * @param {string} req.body.id - The Edit user id..
+ * @param {string} req.body.Name - The Name of the user.
+ * @param {string} req.body.Email - The Email of the user.
+ * @param {string} req.body.Mobile - The Mobile of the user.
+ * @param {string} req.body.Gender - The Gender of the user.
+ * @param {string} req.body.DOB - The DOB of the user.
+ * @return {Object} - User Details.
  */
 const edit_user = async (req, res) => {
   const userToUpdate = req.params.id;
@@ -199,11 +204,10 @@ const edit_user = async (req, res) => {
 /**
  * Deleting The User.
  *
- * @param {Object} req - The request object containing the Product ID to Delete.
+ * @param {Object} req - The request object containing the User ID to Delete.
  * @param {Object} res - The response object to send JSON format.
  * @return {Object} - A JSON response indicating success or failure based on validation.
  */
-
 const delete_user = async (req, res) => {
   try {
     const userToDelette = req.params.id;
